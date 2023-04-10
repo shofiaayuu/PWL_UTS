@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ice_Cream;
+use App\Models\Ice_CreamModel;
 use Illuminate\Http\Request;
 
 class IceCreamController extends Controller
@@ -14,7 +15,9 @@ class IceCreamController extends Controller
      */
     public function index()
     {
-        //
+        $ice = Ice_CreamModel::all();
+        return view('ice_cream.ice_cream')
+            ->with('ice',$ice);
     }
 
     /**
@@ -24,7 +27,8 @@ class IceCreamController extends Controller
      */
     public function create()
     {
-        //
+        return view('ice_cream.create_ice_cream')
+            ->with('url_form',url('/ice_cream'));
     }
 
     /**
@@ -44,7 +48,7 @@ class IceCreamController extends Controller
      * @param  \App\Models\Ice_Cream  $ice_Cream
      * @return \Illuminate\Http\Response
      */
-    public function show(Ice_Cream $ice_Cream)
+    public function show(Ice_CreamModel $ice_Cream)
     {
         //
     }
@@ -55,9 +59,9 @@ class IceCreamController extends Controller
      * @param  \App\Models\Ice_Cream  $ice_Cream
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ice_Cream $ice_Cream)
+    public function edit(Ice_CreamModel $ice_Cream)
     {
-        //
+        
     }
 
     /**
@@ -67,7 +71,7 @@ class IceCreamController extends Controller
      * @param  \App\Models\Ice_Cream  $ice_Cream
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ice_Cream $ice_Cream)
+    public function update(Request $request, Ice_CreamModel $ice_Cream)
     {
         //
     }
@@ -78,7 +82,7 @@ class IceCreamController extends Controller
      * @param  \App\Models\Ice_Cream  $ice_Cream
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ice_Cream $ice_Cream)
+    public function destroy(Ice_CreamModel $ice_Cream)
     {
         //
     }

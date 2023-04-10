@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IceCreamController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('/ice_cream',IceCreamController::class)->parameter('ice_cream','id');
