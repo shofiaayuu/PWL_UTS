@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::resource('/ice_cream',IceCreamController::class)->parameter('ice_cream','id');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
