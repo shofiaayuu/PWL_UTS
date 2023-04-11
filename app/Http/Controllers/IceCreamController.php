@@ -77,7 +77,7 @@ class IceCreamController extends Controller
     {
         $ice_cream = Ice_CreamModel::find($id);
         return view('ice_cream.create_ice_cream')
-            ->with('mhs',$ice_cream)
+            ->with('ice',$ice_cream)
             ->with('url_form',url('/ice_cream/'.$id));
     }
 
