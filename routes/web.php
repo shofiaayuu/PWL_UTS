@@ -15,16 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+Route::middleware(['auth'])->group(function(){
+    Route::get('/home', function () {
+        echo view('ice_cream.ice_cream');
+    });
+
+    Route::get('/logout', [LoginController::class, 'logout']);
 });
-
-Route::resource('/ice_cream',IceCreamController::class)->parameter('ice_cream','id');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -32,7 +32,7 @@
                         </tr>
                     </thead>
                     <body>
-                        @if($ice->count() > 0)
+                        {{-- @if($ice->count() > 0)
                             @foreach($ice as $i => $c)
                             <tr>
                                 <td>{{++$i}}</td>
@@ -40,25 +40,25 @@
                                 <td>{{$c->nama_ice}}</td>
                                 <td>{{$c->harga}}</td>
                                 <td>{{$c->gambar}}</td>
-                                <td>{{$c->qty}}</td>
+                                <td>{{$c->qty}}</td> --}}
                                 
                                 <td>
                                     {{-- Bikin simbol edit dan delete --}}
-                                    <a href="{{url('/ice_cream/'.$c->id.'/edit')}}" 
+                                    {{-- <a href="{{url('/ice_cream/'.$c->id.'/edit')}}" 
                                         class="btn btn-sm btn-warning">edit</a>
                                     
                                     <form method="POST" action="{{url('/ice_cream/'.$c->id)}}">
-                                        @csrf
+                                        @csrf --}}
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger">hapus</button>
                                     </form>
                                 </td>
                             </tr>
-                            @endforeach
+                            {{-- @endforeach --}}
                             
-                        @else
+                        {{-- @else
                             <tr><td colspan="9" class="text-center">Data Tidak Ada</td></tr>
-                        @endif
+                        @endif --}}
                     </body>
                
             </table>
