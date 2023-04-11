@@ -21,9 +21,7 @@ Route::get('/register', [RegisterController::class, 'showRegisterForm']);
 
 Auth::routes();
 Route::middleware(['auth'])->group(function(){
-    Route::get('/home', function () {
-        echo view('ice_cream.ice_cream');
-    });
+    Route::resource('ice_cream', IceCreamController::class);
 
     Route::get('/logout', [LoginController::class, 'logout']);
 });
