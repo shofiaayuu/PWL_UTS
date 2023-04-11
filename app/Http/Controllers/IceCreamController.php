@@ -73,9 +73,12 @@ class IceCreamController extends Controller
      * @param  \App\Models\Ice_Cream  $ice_Cream
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ice_CreamModel $ice_Cream)
+    public function edit($id)
     {
-        
+        $ice_cream = Ice_CreamModel::find($id);
+        return view('ice_cream.create_ice_cream')
+            ->with('mhs',$ice_cream)
+            ->with('url_form',url('/ice_cream/'.$id));
     }
 
     /**
@@ -85,9 +88,20 @@ class IceCreamController extends Controller
      * @param  \App\Models\Ice_Cream  $ice_Cream
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ice_CreamModel $ice_Cream)
+    public function update(Request $request,$id)
     {
-        //
+        //Melakukan validasi data
+        $request->validate([
+            'kode_barang' => 'required|string|max:10|unique:ice_cream,kode_barang,',
+            'nama_ice' => 'required|string|max:50',
+            'harga' => 'required|',
+            'gambar' => 'required|string|max:50',
+            'qty' => 'required|date',
+        ]);
+
+        $data = Ice_CreamModel::where('id', '=', $id)->update($request->except(['_token','_method']));
+        return redirect('ice_cream')
+            ->with('success','Ice Cream Berhasil Ditambahkan');
     }
 
     /**
@@ -96,8 +110,10 @@ class IceCreamController extends Controller
      * @param  \App\Models\Ice_Cream  $ice_Cream
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ice_CreamModel $ice_Cream)
+    public function destroy($id)
     {
-        //
+        Ice_CreamModel::where('id', '=', $id)->delete();
+        return redirect('ice_cream')
+            ->with('success', 'Ice Cream Berhasil Dihapus');
     }
 }
