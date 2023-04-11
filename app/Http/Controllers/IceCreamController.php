@@ -39,7 +39,21 @@ class IceCreamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Melakukan validasi data
+        $request->validate([
+            'kode_barang' => 'required|string|max:10|unique:ice_cream,kode_barang,',
+            'nama_ice' => 'required|string|max:50',
+            'harga' => 'required|',
+            'gambar' => 'required|string|max:50',
+            'qty' => 'required|date',
+        ]);
+
+       $data = Ice_CreamModel::create($request->except(['_token']));
+
+        //jika data berhasil ditambahkan, akan kembali ke halaman utama 
+        return redirect('/ice_cream')
+            ->with('success','Ice Cream Berhasil Ditambahkan');
+
     }
 
     /**
@@ -50,7 +64,7 @@ class IceCreamController extends Controller
      */
     public function show(Ice_CreamModel $ice_Cream)
     {
-        //
+        
     }
 
     /**
