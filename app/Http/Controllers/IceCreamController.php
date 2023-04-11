@@ -45,7 +45,7 @@ class IceCreamController extends Controller
             'nama_ice' => 'required|string|max:50',
             'harga' => 'required|',
             'gambar' => 'required|string|max:50',
-            'qty' => 'required|date',
+            'qty' => 'required|integer',
         ]);
 
        $data = Ice_CreamModel::create($request->except(['_token']));
@@ -96,7 +96,7 @@ class IceCreamController extends Controller
             'nama_ice' => 'required|string|max:50',
             'harga' => 'required|',
             'gambar' => 'required|string|max:50',
-            'qty' => 'required|date',
+            'qty' => 'required|integer',
         ]);
 
         $data = Ice_CreamModel::where('id', '=', $id)->update($request->except(['_token','_method']));
