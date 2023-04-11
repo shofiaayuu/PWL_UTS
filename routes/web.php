@@ -24,3 +24,7 @@ Route::resource('/ice_cream',IceCreamController::class)->parameter('ice_cream','
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
