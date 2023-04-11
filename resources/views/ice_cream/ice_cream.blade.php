@@ -32,7 +32,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if ($ice->count() > 0)
+                        @if($ice->count() > 0)
                         @foreach ($ice as $i => $c)
                         <tr>
                             <td>{{++$i}}</td>
