@@ -18,54 +18,50 @@
             </div>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{$url_form}}">
+            <form method="POST" action="{{ $url_form }}">
                 @csrf
-                {!! (isset($ice))? method_field('PUT') : '' !!}
+                {!! (isset($mhs))? method_field('PUT') : '' !!}
                 <div class="form-group">
-                    <label >Kode Barang</label>
-                    <input class="form-control @error('kode_barang') is-invalid @enderror" value="{{isset($ice)? $ice->kode_barang: old('kode_barang') }}" name="kode_barang" type="text" />
+                    <label for="kode_barang">Kode Barang</label>
+                    <input type="text" name="kode_barang" id="kode_barang" class="form-control @error('kode_barang') is-invalid @enderror" required>
                     @error('kode_barang')
-                      <span class="error invalid-feedback">{{ $message }} </span>
+                        <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-      
                 </div>
+            
                 <div class="form-group">
-                    <label >Nama Ice</label>
-                    <input class="form-control @error('nama_ice') is-invalid @enderror" value="{{isset($ice)? $ice->nama_ice: old('nama_ice') }}" name="nama_ice" type="text"/>
+                    <label for="nama_ice">Nama Ice Cream</label>
+                    <input type="text" name="nama_ice" id="nama_ice" class="form-control @error('nama_ice') is-invalid @enderror" required>
                     @error('nama_ice')
-                      <span class="error invalid-feedback">{{ $message }} </span>
+                        <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-      
                 </div>
+            
                 <div class="form-group">
-                    <label >Harga</label>
-                    <input class="form-control @error('harga') is-invalid @enderror" value="{{isset($ice)? $ice->harga: old('harga') }}" name="harga" type="text"/>
+                    <label for="harga">Harga</label>
+                    <input type="number" name="harga" id="harga" class="form-control @error('harga') is-invalid @enderror" required>
                     @error('harga')
-                        <span class="error invalid-feedback">{{ $message }} </span>
+                        <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-
                 </div>
+            
                 <div class="form-group">
-                    <label >Gambar</label>
-                    <input class="form-control @error('gambar') is-invalid @enderror" value="{{isset($ice)? $ice->gambar: old('gambar') }}" name="gambar" type="img"/>
+                    <label for="gambar">Gambar</label>
+                    <input type="file" name="gambar" id="gambar" class="form-control @error('gambar') is-invalid @enderror" required>
                     @error('gambar')
-                      <span class="error invalid-feedback">{{ $message }} </span>
+                        <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-      
                 </div>
+            
                 <div class="form-group">
-                    <label >QTY</label>
-                    <input class="form-control @error('qty') is-invalid @enderror" value="{{isset($ice)? $ice->qty: old('qty') }}" name="qty" type="text"/>
-                    @error('tanggal_lahir')
-                      <span class="error invalid-feedback">{{ $message }} </span>
+                    <label for="qty">Qty</label>
+                    <input type="date" name="qty" id="qty" class="form-control @error('qty') is-invalid @enderror" required>
+                    @error('qty')
+                        <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-      
                 </div>
-                
-                
-                <div class="form-group">
-                    <button class="btn btn-sm btn-primary">Simpan</button>
-                </div>
+            
+                <button type="submit" class="btn btn-primary">Tambahkan Ice Cream</button>
             </form>
         </div>
     </div>
