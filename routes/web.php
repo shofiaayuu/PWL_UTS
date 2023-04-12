@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/login', [LoginController::class, 'showLoginForm']);
+
 Auth::routes();
 Route::middleware(['auth'])->group(function(){
     Route::get('/home', function () {

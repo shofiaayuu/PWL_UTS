@@ -17,7 +17,7 @@ class IceCreamController extends Controller
     {
         $ice = Ice_CreamModel::all();
         return view('ice_cream.ice_cream')
-            ->with('ice',$ice);
+            ->with('ice', $ice);
     }
 
     /**
