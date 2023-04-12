@@ -22,7 +22,7 @@ Route::get('/register', [RegisterController::class, 'showRegisterForm']);
 Auth::routes();
 Route::middleware(['auth'])->group(function(){
     Route::resource('ice_cream', IceCreamController::class)->parameter('ice_cream', 'id');
-
+    // helloooo
 
 
     Route::get('/logout', [LoginController::class, 'logout']);
