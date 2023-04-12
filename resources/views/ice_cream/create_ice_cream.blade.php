@@ -20,7 +20,7 @@
         <div class="card-body">
             <form method="POST" action="{{ $url_form }}">
                 @csrf
-                {!! (isset($mhs))? method_field('PUT') : '' !!}
+                {!! (isset($ice))? method_field('PUT') : '' !!}
                 <div class="form-group">
                     <label for="kode_barang">Kode Barang</label>
                     <input type="text" name="kode_barang" id="kode_barang" class="form-control @error('kode_barang') is-invalid @enderror" required>

@@ -14,6 +14,6 @@ class IceCreamSeeder extends Seeder
      */
     public function run()
     {
-        //
+        
     }
 }

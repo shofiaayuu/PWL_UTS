@@ -8,17 +8,17 @@
         <div class="card-header">
             <h3 class="card-title">MENU ICE CREAM</h3>
 
-            <div class="card-tools">
+            {{-- <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widge="collapse" title="Collapse">
                     <i class="fas fa-minus"></i>
                 </button>
                 <button type="button" class="btn btn-tool" data-card-widge="remove" title="Remove">
                     <i class="fas fa-times"></i>
                 </button>
-            </div>
+            </div> --}}
         </div>
         <div class="card-body">
-            <a href="{{url('mahasiswas/create')}}" class="btn btn-sm btn-success my-2">Tambah Data</a>
+           <a href="{{ url ('ice_cream/create')}}"class="btn btn-sm btn-success my-2">Tambah Data</a>
             <table class="table table-bordered table-striped">
                 <thead>
                         <tr>
