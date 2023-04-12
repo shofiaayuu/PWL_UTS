@@ -31,6 +31,38 @@
                             <th>Action</th>
                         </tr>
                     </thead>
+<<<<<<< HEAD
+                    <body>
+                        @if($ice->count() > 0)
+                            @foreach($ice as $i => $c)
+                            <tr>
+                                <td>{{++$i}}</td>
+                                <td>{{$c->kode_barang}}</td>
+                                <td>{{$c->nama_ice}}</td>
+                                <td>{{$c->harga}}</td>
+                                <td>{{$c->gambar}}</td>
+                                <td>{{$c->qty}}</td> 
+                                
+                                <td>
+                                    {{-- Bikin simbol edit dan delete --}}
+                                    <a href="{{url('/ice_cream/'.$c->id.'/edit')}}" 
+                                        class="btn btn-sm btn-warning">edit</a>
+                                    
+                                    <form method="POST" action="{{url('/ice_cream/'.$c->id)}}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-danger">hapus</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                            
+                        @else
+                            <tr><td colspan="9" class="text-center">Data Tidak Ada</td></tr>
+                        @endif
+                    </body>
+               
+=======
                     <tbody>
                         @if($ice->count() > 0)
                         @foreach ($ice as $i => $c)
@@ -57,6 +89,7 @@
                             
                         @endif
                     </tbody>
+>>>>>>> 80a9c234f31f2733f4be831903282da748d74036
             </table>
         </div>
     </div>

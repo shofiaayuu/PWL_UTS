@@ -44,7 +44,7 @@ class IceCreamController extends Controller
             'kode_barang' => 'required|string|max:10|unique:ice_cream,kode_barang',
             'nama_ice' => 'required|string|max:50',
             'harga' => 'required',
-            'gambar' => 'required|max:2048', // Validasi untuk file gambar (image)
+            'gambar' => 'required|max:2048',//validasi untuk file gambar(images)
             'qty' => 'required|date',
         ]);
     
@@ -119,8 +119,8 @@ class IceCreamController extends Controller
         $request->validate([
             'kode_barang' => 'required|string|max:10|unique:ice_cream,kode_barang,',
             'nama_ice' => 'required|string|max:50',
-            'harga' => 'required|',
-            'gambar' => 'required|string|max:50',
+            'harga' => 'required',
+            'gambar' => 'required|max:2048',//validasi untuk file gambar(images)
             'qty' => 'required|date',
         ]);
 
